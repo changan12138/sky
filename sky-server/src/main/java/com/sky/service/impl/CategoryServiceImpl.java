@@ -41,4 +41,14 @@ public class CategoryServiceImpl implements CategoryService {
                 .updateUser(BaseContext.getCurrentId()).build();
         categoryMapper.add(category);
     }
+
+    @Override
+    public void enable(Integer status, Long id) {
+        Category category =Category.builder().updateUser(BaseContext.getCurrentId())
+                .status(status)
+                .updateTime(LocalDateTime.now())
+                .id(id)
+                .build();
+                categoryMapper.update(category);
+    }
 }

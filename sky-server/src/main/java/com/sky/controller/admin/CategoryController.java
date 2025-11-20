@@ -33,5 +33,13 @@ public class CategoryController {
         return Result.success();
     }
 
+    @PostMapping("/status/{status}")
+    public Result enable(@PathVariable Integer status,Long id) {
+        log.info("权限设置：{}", status);
+        categoryService.enable(status,id);
+        return Result.success();
+
+    }
+
 
 }

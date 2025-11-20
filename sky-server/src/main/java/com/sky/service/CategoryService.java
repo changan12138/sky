@@ -8,4 +8,6 @@ public interface CategoryService {
     PageResult page(CategoryPageQueryDTO categoryPageQueryDTO);
 
     void add(CategoryDTO categoryDTO);
+
+    void enable(Integer status, Long id);
 }
