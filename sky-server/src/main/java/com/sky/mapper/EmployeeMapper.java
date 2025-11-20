@@ -1,8 +1,11 @@
 package com.sky.mapper;
 
+import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 @Mapper
 public interface EmployeeMapper {
@@ -15,4 +18,11 @@ public interface EmployeeMapper {
     @Select("select * from employee where username = #{username}")
     Employee getByUsername(String username);
 
+    void addEmp(Employee employee);
+
+    List<Employee> page(EmployeePageQueryDTO employeePageQueryDTO);
+
+    void enable(Employee employee);
+
+    Employee getbyID(Long id);
 }
