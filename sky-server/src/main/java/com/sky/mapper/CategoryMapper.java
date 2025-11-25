@@ -14,4 +14,8 @@ public interface CategoryMapper {
     void add(Category category);
 
     void update(Category category);
+
+    Category idtype(Long id);
+
+    void delete(Long id);
 }

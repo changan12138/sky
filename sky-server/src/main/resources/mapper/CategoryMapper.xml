@@ -16,6 +16,10 @@
     </set>
         where id =#{id}
     </update>
+    <delete id="delete">
+       delete * from category where id =#{id}
+
+    </delete>
     <select id="page" resultType="com.sky.entity.Category">
         select * from category <where>
         <if test="name!=null and name!=''">
@@ -26,5 +30,8 @@
         </if>
     </where>
         order by sort asc,create_time desc
+    </select>
+    <select id="idtype" resultType="com.sky.entity.Category">
+        select * from category where id =#{id}
     </select>
 </mapper>

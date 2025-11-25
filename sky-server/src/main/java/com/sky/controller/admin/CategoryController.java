@@ -38,8 +38,26 @@ public class CategoryController {
         log.info("权限设置：{}", status);
         categoryService.enable(status,id);
         return Result.success();
-
     }
+    @GetMapping("/list")
+    public Result getbyid(Long id){
+        log.info("id回显：{}", id);
+        Category category=categoryService.idtype(id);
+        return Result.success(category);
+    }
+    @PutMapping
+    public Result update(@RequestBody CategoryDTO categoryDTO) {
+        log.info("更新分类：{}", categoryDTO);
+        categoryService.update(categoryDTO);
+        return Result.success();
+    }
+    @DeleteMapping
+    public Result delete(Long id) {
+        log.info("删除分类：{}", id);
+        categoryService.delete(id);
+        return Result.success();
+    }
+
 
 
 }
